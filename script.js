@@ -3,6 +3,34 @@
 document.addEventListener('DOMContentLoaded', () => {
     const WEDDING_DATE = new Date('2026-05-31T11:00:00+05:30').getTime();
 
+    // 🎉 CONFETTI FUNCTION
+    function fireConfetti() {
+        const duration = 2 * 1000;
+        const end = Date.now() + duration;
+
+        (function frame() {
+            confetti({
+                particleCount: 5,
+                angle: 60,
+                spread: 70,
+                origin: { x: 0 },
+                colors: ['#d4af37', '#f5d876', '#ffffff']
+            });
+
+            confetti({
+                particleCount: 5,
+                angle: 120,
+                spread: 70,
+                origin: { x: 1 },
+                colors: ['#d4af37', '#f5d876', '#ffffff']
+            });
+
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        })();
+    }
+
     // 1. CLEAN PARALLAX
     document.addEventListener('mousemove', (e) => {
         const x = (e.clientX / window.innerWidth - 0.5) * 20;
@@ -80,14 +108,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const bodyNo = document.getElementById('modal-body-no');
         const audio = document.getElementById('bg-music');
 
-        // Reset
         bodyYes.classList.add('hidden');
         bodyNo.classList.add('hidden');
 
         if (choice === 'yes') {
             bodyYes.classList.remove('hidden');
 
-            // 🎵 Play music with fade-in
+            // 🎉 CONFETTI ON YES CLICK
+            fireConfetti();
+
+            // 🎵 MUSIC
             if (audio) {
                 audio.volume = 0;
                 audio.play().then(() => {
@@ -111,14 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.add('active');
     };
 
-    // 🔥 UPDATED CLOSE MODAL WITH MUSIC STOP
+    // CLOSE MODAL + STOP MUSIC
     window.closeModal = function() {
         const modal = document.getElementById('rsvp-modal');
         const audio = document.getElementById('bg-music');
 
         modal.classList.remove('active');
 
-        // 🎵 Smooth fade-out + stop
         if (audio && !audio.paused) {
             let vol = audio.volume;
             const fadeOut = setInterval(() => {
@@ -139,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 400);
     };
 
-    // Click outside to close
+    // Outside click close
     window.addEventListener("click", function(event) {
         const modal = document.getElementById('rsvp-modal');
         if (event.target === modal) {
@@ -147,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ESC key close
+    // ESC close
     document.addEventListener("keydown", function(e) {
         if (e.key === "Escape") {
             closeModal();
@@ -160,4 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 1000);
     updateCountdown();
     window.addEventListener('resize', initParticles);
+
+    // 🎉 CONFETTI ON PAGE LOAD
+    setTimeout(() => {
+        fireConfetti();
+    }, 500);
 });
