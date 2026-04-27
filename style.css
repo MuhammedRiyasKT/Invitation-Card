@@ -4,11 +4,13 @@
   --bg-soft: #0a1f14;
   --gold: #d4af37;
   --gold-light: #f5d876;
+  --gold-modal: #8a7342; /* Specific gold for modal text */
   --text-main: #f5edd8;
   --text-dim: rgba(245, 237, 216, 0.75);
   --glass: rgba(255, 255, 255, 0.08);
   --glass-border: rgba(212, 175, 55, 0.35);
   --shimmer: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728, #fcf6ba, #bf953f);
+  --modal-green: #1a3c2a; /* Deep green from your popup buttons */
   
   --ff-dp: 'Playfair Display', serif;
   --ff-ar: 'Amiri', serif;
@@ -364,43 +366,6 @@ body::before {
   box-shadow: 0 4px 24px rgba(180,80,80,.15);
   color: rgba(255,200,200,.9);
 }
-.rsvp-choice-btn.selected-yes {
-  background: rgba(212,175,55,.25);
-  border-color: var(--gold-light);
-  color: #f5d876;
-  box-shadow: 0 4px 28px rgba(212,175,55,.25);
-}
-.rsvp-choice-btn.selected-no {
-  background: rgba(180,80,80,.25);
-  border-color: rgba(220,120,120,.6);
-  color: rgba(255,200,200,.9);
-}
-.rsvp-success {
-  text-align: center;
-  padding: 2.5rem 1.5rem;
-  background: rgba(3,12,7,.6);
-  border: 1px solid rgba(212,175,55,.3);
-  border-radius: 16px;
-  max-width: 380px;
-  margin: 0 auto;
-  backdrop-filter: blur(16px);
-}
-.rsvp-ok-icon { font-size: 2.5rem; margin-bottom: .75rem; }
-.rsvp-ok-title {
-  font-family: var(--ff-dp);
-  font-size: 1.6rem;
-  color: var(--gold-light);
-  font-style: italic;
-  margin-bottom: .4rem;
-  text-shadow: 0 2px 12px rgba(0,0,0,.7);
-}
-.rsvp-ok-sub {
-  font-family: var(--ff-sr);
-  font-style: italic;
-  font-size: .9rem;
-  color: rgba(245,237,216,.8);
-  line-height: 1.7;
-}
 
 .btn-fill {
   width: 100%; padding: 14px; border: none; border-radius: 50px;
@@ -451,6 +416,55 @@ body::before {
   text-shadow: 0 1px 6px rgba(0,0,0,.7);
 }
 
+/* ── MODERN WHITE MODAL STYLES ── */
+.modal-overlay {
+  position: fixed; inset: 0; 
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  z-index: 2000; display: flex; align-items: center; justify-content: center;
+  padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+
+.modal-content {
+  background: #ffffff; width: 100%; max-width: 460px; padding: 50px 30px;
+  position: relative; text-align: center; border-radius: 2px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+  transform: translateY(40px); transition: transform 0.5s cubic-bezier(0.17, 0.67, 0.2, 1);
+}
+.modal-overlay.active .modal-content { transform: translateY(0); }
+
+.modal-close {
+  position: absolute; top: 15px; right: 20px;
+  background: none; border: none; font-size: 28px;
+  color: #999; cursor: pointer;
+}
+
+.arabic-modal-title {
+  font-family: var(--ff-ar); font-size: 2.4rem;
+  color: var(--modal-green); margin-bottom: 12px;
+}
+.eng-modal-title {
+  font-family: var(--ff-ss); letter-spacing: 3px; font-size: 0.8rem;
+  color: var(--gold-modal); margin-bottom: 25px; font-weight: 500;
+}
+.modal-text {
+  font-family: var(--ff-sr); font-style: italic; font-size: 1.1rem;
+  color: #555; line-height: 1.7; margin-bottom: 35px;
+}
+.modal-action-btn {
+  background: var(--modal-green); color: var(--gold-light);
+  border: none; padding: 16px 45px; font-family: var(--ff-ss);
+  letter-spacing: 2px; font-size: 0.75rem; font-weight: 600;
+  cursor: pointer; transition: background 0.3s;
+}
+.modal-action-btn:hover { background: #0a1f14; }
+
+/* Icons in Popups */
+.modal-icon { width: 50px; height: 40px; margin: 0 auto 15px; background-size: contain; background-repeat: no-repeat; background-position: center; }
+.gold-heart { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23d4af37" stroke-width="1"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>'); }
+.gold-double-heart { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23d4af37" stroke-width="1"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>'); }
+
 /* ── Animations ── */
 .reveal { opacity: 0; transform: translateY(20px); transition: 1s ease; }
 .reveal.visible { opacity: 1; transform: none; }
@@ -461,4 +475,6 @@ body::before {
   .cd-grid { gap: 8px; }
   .cd-val { font-size: 1.5rem; }
   .reveal-section { padding: 2rem 1.25rem; }
+  .modal-content { padding: 40px 20px; }
+  .arabic-modal-title { font-size: 2rem; }
 }

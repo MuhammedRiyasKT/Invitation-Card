@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const WEDDING_DATE = new Date('2026-05-31T11:00:00+05:30').getTime();
 
-    // 1. CLEAN PARALLAX (Subtle framing movement)
+    // 1. CLEAN PARALLAX
     document.addEventListener('mousemove', (e) => {
         const x = (e.clientX / window.innerWidth - 0.5) * 20;
         const y = (e.clientY / window.innerHeight - 0.5) * 20;
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. GOLD DUST PARTICLES (On Hero)
+    // 2. GOLD DUST PARTICLES
     const canvas = document.getElementById('hero-dust');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -28,8 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
                 r: Math.random() * 1.5 + 0.5,
-                d: Math.random() * 0.5 + 0.2,
-                a: Math.random() * 0.5
+                d: Math.random() * 0.5 + 0.2
             });
         }
     }
@@ -63,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('cd-s').textContent = String(s).padStart(2, '0');
     }
 
-    // 4. SCROLL REVEAL LOGIC
+    // 4. SCROLL REVEAL
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -74,23 +73,88 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.reveal, .reveal-section').forEach(el => revealObserver.observe(el));
 
-    // 5. RSVP FORM SIMULATION
-    const rsvpForm = document.getElementById('rsvp-form');
-    if (rsvpForm) {
-        rsvpForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = rsvpForm.querySelector('button');
-            btn.textContent = "Sending...";
-            btn.disabled = true;
-            
-            setTimeout(() => {
-                rsvpForm.classList.add('hidden');
-                document.getElementById('rsvp-ok').classList.remove('hidden');
-            }, 1500);
-        });
-    }
+    // 5. RSVP + MODAL LOGIC
+    window.handleRSVP = function(choice) {
+        const modal = document.getElementById('rsvp-modal');
+        const bodyYes = document.getElementById('modal-body-yes');
+        const bodyNo = document.getElementById('modal-body-no');
+        const audio = document.getElementById('bg-music');
 
-    // Init All
+        // Reset
+        bodyYes.classList.add('hidden');
+        bodyNo.classList.add('hidden');
+
+        if (choice === 'yes') {
+            bodyYes.classList.remove('hidden');
+
+            // 🎵 Play music with fade-in
+            if (audio) {
+                audio.volume = 0;
+                audio.play().then(() => {
+                    let vol = 0;
+                    const fadeIn = setInterval(() => {
+                        vol += 0.05;
+                        if (vol >= 1) {
+                            vol = 1;
+                            clearInterval(fadeIn);
+                        }
+                        audio.volume = vol;
+                    }, 100);
+                }).catch(() => {});
+            }
+
+        } else {
+            bodyNo.classList.remove('hidden');
+        }
+
+        modal.classList.remove('hidden');
+        modal.classList.add('active');
+    };
+
+    // 🔥 UPDATED CLOSE MODAL WITH MUSIC STOP
+    window.closeModal = function() {
+        const modal = document.getElementById('rsvp-modal');
+        const audio = document.getElementById('bg-music');
+
+        modal.classList.remove('active');
+
+        // 🎵 Smooth fade-out + stop
+        if (audio && !audio.paused) {
+            let vol = audio.volume;
+            const fadeOut = setInterval(() => {
+                vol -= 0.05;
+                if (vol <= 0) {
+                    audio.pause();
+                    audio.currentTime = 0;
+                    audio.volume = 1;
+                    clearInterval(fadeOut);
+                } else {
+                    audio.volume = vol;
+                }
+            }, 100);
+        }
+
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 400);
+    };
+
+    // Click outside to close
+    window.addEventListener("click", function(event) {
+        const modal = document.getElementById('rsvp-modal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    // ESC key close
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") {
+            closeModal();
+        }
+    });
+
+    // INIT
     initParticles();
     drawParticles();
     setInterval(updateCountdown, 1000);
