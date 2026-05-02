@@ -1,184 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
-  <meta name="description" content="Wedding invitation of Muhammed Nihad & Fathimathul Ansiya – 31 May 2026"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="description" content="Wedding invitation of Muhammed Nihad & Fathimathul Ansiya – 31 May 2026" />
   <title>Nihad & Ansiya — Wedding Invitation</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Amiri:wght@400;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Amiri:wght@400;700&family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<!-- High-end Texture Overlay -->
-<div class="paper-overlay"></div>
+  <!-- ── 3D DOORS OPENING ── -->
+  <div id="door-container" class="door-container">
+    <svg width="0" height="0" style="position:absolute">
+      <defs>
+        <g id="door-flower-svg">
+          <circle cx="40" cy="40" r="6" fill="currentColor" />
+          <ellipse cx="40" cy="20" rx="6" ry="14" fill="none" stroke="currentColor" stroke-width="1.5"
+            transform="rotate(0 40 40)" />
+          <ellipse cx="40" cy="20" rx="6" ry="14" fill="none" stroke="currentColor" stroke-width="1.5"
+            transform="rotate(60 40 40)" />
+          <ellipse cx="40" cy="20" rx="6" ry="14" fill="none" stroke="currentColor" stroke-width="1.5"
+            transform="rotate(120 40 40)" />
+          <ellipse cx="40" cy="20" rx="6" ry="14" fill="none" stroke="currentColor" stroke-width="1.5"
+            transform="rotate(180 40 40)" />
+          <ellipse cx="40" cy="20" rx="6" ry="14" fill="none" stroke="currentColor" stroke-width="1.5"
+            transform="rotate(240 40 40)" />
+          <ellipse cx="40" cy="20" rx="6" ry="14" fill="none" stroke="currentColor" stroke-width="1.5"
+            transform="rotate(300 40 40)" />
+        </g>
+      </defs>
+    </svg>
 
-<main class="main-container">
-
-  <!-- ░░ ANIMATED SVG VECTOR LAYER ░░ -->
-  <div class="svg-bg" aria-hidden="true">
-    <!-- These are the decorative floating elements from your design -->
-    <svg class="vec fl-rose r1" viewBox="0 0 80 80"><circle cx="40" cy="40" r="8" fill="none" stroke="currentColor" stroke-width="1"/><ellipse cx="40" cy="22" rx="8" ry="13" fill="none" stroke="currentColor" stroke-width="1" transform="rotate(0 40 40)"/><ellipse cx="40" cy="22" rx="8" ry="13" fill="none" stroke="currentColor" stroke-width="1" transform="rotate(60 40 40)"/><ellipse cx="40" cy="22" rx="8" ry="13" fill="none" stroke="currentColor" stroke-width="1" transform="rotate(120 40 40)"/><ellipse cx="40" cy="22" rx="8" ry="13" fill="none" stroke="currentColor" stroke-width="1" transform="rotate(180 40 40)"/><ellipse cx="40" cy="22" rx="8" ry="13" fill="none" stroke="currentColor" stroke-width="1" transform="rotate(240 40 40)"/><ellipse cx="40" cy="22" rx="8" ry="13" fill="none" stroke="currentColor" stroke-width="1" transform="rotate(300 40 40)"/></svg>
-    <svg class="vec fl-leaf l1" viewBox="0 0 60 80"><path d="M30 70 C10 50 8 20 30 10 C52 20 50 50 30 70Z" fill="none" stroke="currentColor" stroke-width="1.2"/><line x1="30" y1="70" x2="30" y2="10" stroke="currentColor" stroke-width="0.6" opacity="0.5"/></svg>
-    <svg class="vec dot1" viewBox="0 0 60 60"><circle cx="10" cy="30" r="2.5" fill="currentColor"/><circle cx="30" cy="10" r="2.5" fill="currentColor"/><circle cx="50" cy="30" r="2.5" fill="currentColor"/><circle cx="30" cy="50" r="2.5" fill="currentColor"/></svg>
+    <div class="door door-left">
+      <div class="door-inner"></div>
+      <svg class="door-flower flower-tl" viewBox="0 0 80 80">
+        <use href="#door-flower-svg" />
+      </svg>
+      <svg class="door-flower flower-bl" viewBox="0 0 80 80">
+        <use href="#door-flower-svg" />
+      </svg>
+      <div class="door-monogram monogram-left">N</div>
+    </div>
+    <div class="door door-right">
+      <div class="door-inner"></div>
+      <svg class="door-flower flower-tr" viewBox="0 0 80 80">
+        <use href="#door-flower-svg" />
+      </svg>
+      <svg class="door-flower flower-br" viewBox="0 0 80 80">
+        <use href="#door-flower-svg" />
+      </svg>
+      <div class="door-monogram monogram-right">A</div>
+    </div>
+    <div class="door-center-seal" id="door-seal">
+      <span class="seal-amp">&amp;</span>
+    </div>
+    <div class="door-tap-hint" id="door-hint">TAP TO OPEN</div>
   </div>
 
-  <!-- ── HERO SECTION ── -->
-  <section id="s-hero" class="section-hero">
-    <canvas id="hero-dust"></canvas>
-    <div class="hero-content">
-      <div class="reveal">
-        <p class="arabic-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-        <p class="hero-sub">In the name of Allah, the Most Gracious, the Most Merciful</p>
-      </div>
-      
-      <div class="hero-divider reveal">
-        <span class="line"></span><span class="diamond">✦</span><span class="line"></span>
-      </div>
+  <!-- High-end Texture Overlay -->
+  <div class="paper-overlay"></div>
 
-      <div class="names-wrap reveal">
-        <h1 class="shimmer-name">Muhammed Nihad</h1>
-        <p class="arabic-name">محمد نهاد</p>
-        
-        <div class="ampersand-row">
-          <span class="amp-line"></span>
-          <span class="amp-symbol">&amp;</span>
-          <span class="amp-line"></span>
-        </div>
+  <main class="main-container">
 
-        <h1 class="shimmer-name">Fathimathul Ansiya</h1>
-        <p class="arabic-name">فاطمة أنسية</p>
-      </div>
-
-      <div class="hero-divider reveal">
-        <span class="line"></span><span class="diamond">✦</span><span class="line"></span>
-      </div>
-
-      <p class="hero-invite reveal">"We request the honor of your presence at our wedding ceremony."</p>
-      
-      <div class="hero-date reveal">
-        <span class="date-box">SUNDAY</span>
-        <span class="date-main">31 MAY 2026</span>
-        <span class="date-box">11:00 AM</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── COUNTDOWN ── -->
-  <section class="section-countdown reveal-section">
-    <h2 class="section-title">العد التنازلي</h2>
-    <p class="section-label">COUNTING THE DAYS</p>
-    <div class="cd-grid">
-      <div class="cd-item"><div class="cd-val" id="cd-d">00</div><div class="cd-lbl">Days</div></div>
-      <div class="cd-item"><div class="cd-val" id="cd-h">00</div><div class="cd-lbl">Hours</div></div>
-      <div class="cd-item"><div class="cd-val" id="cd-m">00</div><div class="cd-lbl">Mins</div></div>
-      <div class="cd-item"><div class="cd-val" id="cd-s">00</div><div class="cd-lbl">Secs</div></div>
-    </div>
-  </section>
-
-  <!-- ── DETAILS ── -->
-  <section id="s-details" class="section-details reveal-section">
-    <h2 class="section-title">تفاصيل الحفل</h2>
-    <p class="section-label">EVENT DETAILS</p>
-    
-    <div class="glass-card details-card">
-      <div class="detail-item">
-        <span class="detail-icon">📅</span>
-        <div>
-          <p class="detail-title">Date</p>
-          <p class="detail-text">May 31, 2026 (Sunday)</p>
-        </div>
-      </div>
-      <div class="detail-divider"></div>
-      <div class="detail-item">
-        <span class="detail-icon">🕐</span>
-        <div>
-          <p class="detail-title">Time</p>
-          <p class="detail-text">11:00 AM Onwards</p>
-        </div>
-      </div>
-      <div class="detail-divider"></div>
-      <div class="detail-item">
-        <span class="detail-icon">📍</span>
-        <div>
-          <p class="detail-title">Venue</p>
-          <p class="detail-text">MALABAR AUDITORIUM</p>
-          <p class="detail-sub">Chundambatta, Kerala</p>
-        </div>
-      </div>
+    <!-- ░░ ANIMATED SVG VECTOR LAYER ░░ -->
+    <div class="svg-bg" aria-hidden="true">
+      <!-- These are the decorative floating elements from your design -->
+      <svg class="vec fl-rose r1" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="8" fill="none" stroke="currentColor" stroke-width="1" />
+        <ellipse cx="40" cy="22" rx="8" ry="13" fill="none" stroke="currentColor" stroke-width="1"
+          transform="rotate(0 40 40)" />
+        <ellipse cx="40" cy="22" rx="8" ry="13" fill="none" stroke="currentColor" stroke-width="1"
+          transform="rotate(60 40 40)" />
+        <ellipse cx="40" cy="22" rx="8" ry="13" fill="none" stroke="currentColor" stroke-width="1"
+          transform="rotate(120 40 40)" />
+        <ellipse cx="40" cy="22" rx="8" ry="13" fill="none" stroke="currentColor" stroke-width="1"
+          transform="rotate(180 40 40)" />
+        <ellipse cx="40" cy="22" rx="8" ry="13" fill="none" stroke="currentColor" stroke-width="1"
+          transform="rotate(240 40 40)" />
+        <ellipse cx="40" cy="22" rx="8" ry="13" fill="none" stroke="currentColor" stroke-width="1"
+          transform="rotate(300 40 40)" />
+      </svg>
+      <svg class="vec fl-leaf l1" viewBox="0 0 60 80">
+        <path d="M30 70 C10 50 8 20 30 10 C52 20 50 50 30 70Z" fill="none" stroke="currentColor" stroke-width="1.2" />
+        <line x1="30" y1="70" x2="30" y2="10" stroke="currentColor" stroke-width="0.6" opacity="0.5" />
+      </svg>
+      <svg class="vec dot1" viewBox="0 0 60 60">
+        <circle cx="10" cy="30" r="2.5" fill="currentColor" />
+        <circle cx="30" cy="10" r="2.5" fill="currentColor" />
+        <circle cx="50" cy="30" r="2.5" fill="currentColor" />
+        <circle cx="30" cy="50" r="2.5" fill="currentColor" />
+      </svg>
     </div>
 
-    <a href="https://maps.google.com" target="_blank" class="btn-outline reveal">
-      Get Directions ⊕
-    </a>
-  </section>
-
-  <!-- ── RSVP ── -->
-  <section id="s-rsvp" class="section-rsvp reveal-section">
-    <p class="rsvp-heading">Kindly Respond</p>
-    <p class="rsvp-quote">"Your presence would fill our hearts with joy.<br>Please let us know if you can join us."</p>
-    <div class="rsvp-choices">
-      <button class="rsvp-choice-btn rsvp-yes" onclick="handleRSVP('yes')">
-        <span class="rc-icon">🤍</span>
-        <span>Yes, InshAllah — I will be there</span>
-      </button>
-      <button class="rsvp-choice-btn rsvp-no" onclick="handleRSVP('no')">
-        <span class="rc-icon">🙏</span>
-        <span>Unfortunately, I can't make it</span>
-      </button>
-    </div>
-  </section>
-
-  <!-- ── FOOTER ── -->
-  <footer class="footer">
-    <div class="footer-divider"></div>
-    <p class="footer-ayah">"And He put between you affection and mercy."</p>
-    <p class="footer-ref">Surah Ar-Rum 30:21</p>
-    <p class="footer-names">Nihad & Ansiya • 2026</p>
-  </footer>
-
-  <!-- ── BACKGROUND MUSIC (Hidden) ── -->
-  <audio id="bg-music" loop>
-  <source src="Music.wav" type="audio/wav">
-</audio>
-
-  <!-- ── POPUP MODAL ── -->
-  <div id="rsvp-modal" class="modal-overlay hidden">
-    <div class="modal-content">
-      <!-- Close button (X) -->
-      <button class="modal-close" onclick="closeModal()">&times;</button>
-      
-      <!-- Content for YES -->
-      <div id="modal-body-yes" class="modal-body hidden">
-        <div class="modal-icon gold-heart"></div>
-        <h2 class="arabic-modal-title">بإذن الله نلتقي</h2>
-        <p class="eng-modal-title">INSHALLAH, WE WILL SEE YOU THERE!</p>
-        <div class="modal-text">
-          <p>Your presence fills our hearts with joy.</p>
-          <p>May Allah make this day blessed for all.</p>
+    <!-- ── HERO SECTION ── -->
+    <section id="s-hero" class="section-hero">
+      <canvas id="hero-dust"></canvas>
+      <div class="hero-content">
+        <div class="reveal">
+          <p class="arabic-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+          <p class="hero-sub">In the name of Allah, the Most Gracious, the Most Merciful</p>
         </div>
-        <button class="modal-action-btn" onclick="closeModal()">JAZAKALLAH KHAIR</button>
+
+        <div class="hero-divider reveal">
+          <span class="line"></span><span class="diamond">✦</span><span class="line"></span>
+        </div>
+
+        <div class="names-wrap reveal">
+          <h1 class="shimmer-name">Muhammed Nihad</h1>
+          <p class="arabic-name">محمد نهاد</p>
+
+          <div class="ampersand-row">
+            <span class="amp-line"></span>
+            <span class="amp-symbol">&amp;</span>
+            <span class="amp-line"></span>
+          </div>
+
+          <h1 class="shimmer-name">Fathimathul Ansiya</h1>
+          <p class="arabic-name">فاطمة أنسية</p>
+        </div>
+
+        <div class="hero-divider reveal">
+          <span class="line"></span><span class="diamond">✦</span><span class="line"></span>
+        </div>
+
+        <p class="hero-invite reveal">"We request the honor of your presence at our wedding ceremony."</p>
+
+        <div class="hero-date reveal">
+          <span class="date-box">SUNDAY</span>
+          <span class="date-main">31 MAY 2026</span>
+          <span class="date-box">11:00 AM</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── COUNTDOWN ── -->
+    <section class="section-countdown reveal-section">
+      <h2 class="section-title">العد التنازلي</h2>
+      <p class="section-label">COUNTING THE DAYS</p>
+      <div class="cd-grid">
+        <div class="cd-item">
+          <div class="cd-val" id="cd-d">00</div>
+          <div class="cd-lbl">Days</div>
+        </div>
+        <div class="cd-item">
+          <div class="cd-val" id="cd-h">00</div>
+          <div class="cd-lbl">Hours</div>
+        </div>
+        <div class="cd-item">
+          <div class="cd-val" id="cd-m">00</div>
+          <div class="cd-lbl">Mins</div>
+        </div>
+        <div class="cd-item">
+          <div class="cd-val" id="cd-s">00</div>
+          <div class="cd-lbl">Secs</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DETAILS ── -->
+    <section id="s-details" class="section-details reveal-section">
+      <h2 class="section-title">تفاصيل الحفل</h2>
+      <p class="section-label">EVENT DETAILS</p>
+
+      <div class="glass-card details-card">
+        <div class="detail-item">
+          <span class="detail-icon">📅</span>
+          <div>
+            <p class="detail-title">Date</p>
+            <p class="detail-text">May 31, 2026 (Sunday)</p>
+          </div>
+        </div>
+        <div class="detail-divider"></div>
+        <div class="detail-item">
+          <span class="detail-icon">🕐</span>
+          <div>
+            <p class="detail-title">Time</p>
+            <p class="detail-text">11:00 AM Onwards</p>
+          </div>
+        </div>
+        <div class="detail-divider"></div>
+        <div class="detail-item">
+          <span class="detail-icon">📍</span>
+          <div>
+            <p class="detail-title">Venue</p>
+            <p class="detail-text">MALABAR AUDITORIUM</p>
+            <p class="detail-sub">Chundambatta, Kerala</p>
+          </div>
+        </div>
       </div>
 
-      <!-- Content for NO -->
-      <div id="modal-body-no" class="modal-body hidden">
-        <div class="modal-icon gold-double-heart"></div>
-        <h2 class="arabic-modal-title">دُعَاؤُكُمْ يَكْفِينَا</h2>
-        <p class="eng-modal-title">YOUR BLESSINGS ARE ALL WE NEED</p>
-        <div class="modal-text">
-          <p>We understand, and truly appreciate you letting us know.</p>
-          <p>May your duas and prayers be with us on this special day.</p>
-          <p>Your blessings, even from afar, mean everything.</p>
+      <a href="https://maps.app.goo.gl/TNoNHFs2Y8TKwue86?g_st=iw" target="_blank" class="btn-outline reveal">
+        Get Directions ⊕
+      </a>
+    </section>
+
+    <!-- ── RSVP ── -->
+    <section id="s-rsvp" class="section-rsvp reveal-section">
+      <p class="rsvp-heading">Kindly Respond</p>
+      <p class="rsvp-quote">"Your presence would fill our hearts with joy.<br>Please let us know if you can join us."
+      </p>
+      <div class="rsvp-choices">
+        <button class="rsvp-choice-btn rsvp-yes" onclick="handleRSVP('yes')">
+          <span class="rc-icon">🤍</span>
+          <span>Yes, InshAllah — I will be there</span>
+        </button>
+        <button class="rsvp-choice-btn rsvp-no" onclick="handleRSVP('no')">
+          <span class="rc-icon">🙏</span>
+          <span>Unfortunately, I can't make it</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+      <div class="footer-divider"></div>
+      <p class="footer-ayah">"And He put between you affection and mercy."</p>
+      <p class="footer-ref">Surah Ar-Rum 30:21</p>
+      <p class="footer-names">Nihad & Ansiya • 2026</p>
+    </footer>
+
+    <!-- ── BACKGROUND MUSIC (Hidden) ── -->
+    <audio id="bg-music" loop>
+      <source src="Music.wav" type="audio/wav">
+    </audio>
+
+    <!-- ── POPUP MODAL ── -->
+    <div id="rsvp-modal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <!-- Close button (X) -->
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+
+        <!-- Content for YES -->
+        <div id="modal-body-yes" class="modal-body hidden">
+          <div class="modal-icon gold-heart"></div>
+          <h2 class="arabic-modal-title">بإذن الله نلتقي</h2>
+          <p class="eng-modal-title">INSHALLAH, WE WILL SEE YOU THERE!</p>
+          <div class="modal-text">
+            <p>Your presence fills our hearts with joy.</p>
+            <p>May Allah make this day blessed for all.</p>
+          </div>
+          <button class="modal-action-btn" onclick="closeModal()">JAZAKALLAH KHAIR</button>
         </div>
-        <button class="modal-action-btn" onclick="closeModal()">WE APPRECIATE YOU</button>
+
+        <!-- Content for NO -->
+        <div id="modal-body-no" class="modal-body hidden">
+          <div class="modal-icon gold-double-heart"></div>
+          <h2 class="arabic-modal-title">دُعَاؤُكُمْ يَكْفِينَا</h2>
+          <p class="eng-modal-title">YOUR BLESSINGS ARE ALL WE NEED</p>
+          <div class="modal-text">
+            <p>We understand, and truly appreciate you letting us know.</p>
+            <p>May your duas and prayers be with us on this special day.</p>
+            <p>Your blessings, even from afar, mean everything.</p>
+          </div>
+          <button class="modal-action-btn" onclick="closeModal()">WE APPRECIATE YOU</button>
+        </div>
       </div>
     </div>
-  </div>
 
-</main>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<script src="script.js"></script>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>

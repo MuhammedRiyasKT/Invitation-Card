@@ -190,8 +190,34 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     window.addEventListener('resize', initParticles);
 
-    // 🎉 CONFETTI ON PAGE LOAD
-    setTimeout(() => {
-        fireConfetti();
-    }, 500);
+    // 🚪 DOORS OPENING ANIMATION
+    const doorContainer = document.getElementById('door-container');
+    let doorsOpened = false;
+
+    function openDoors() {
+        if (doorsOpened) return;
+        doorsOpened = true;
+        
+        if (doorContainer) {
+            doorContainer.classList.add('open');
+            setTimeout(() => {
+                doorContainer.style.display = 'none';
+            }, 1800); // match CSS transition duration
+        }
+        
+        // 🎉 CONFETTI WHEN DOORS OPEN
+        setTimeout(() => {
+            fireConfetti();
+        }, 700);
+    }
+
+    if (doorContainer) {
+        // Open on click/tap
+        doorContainer.addEventListener('click', openDoors);
+        
+        // Auto open after 50 seconds
+        setTimeout(() => {
+            openDoors();
+        }, 50000);
+    }
 });

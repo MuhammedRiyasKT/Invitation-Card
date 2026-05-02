@@ -471,6 +471,141 @@ body::before {
 
 .hidden { display: none; }
 
+/* ── 3D DOORS OPENING ── */
+.door-container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  perspective: 1500px;
+  cursor: pointer;
+  background: var(--bg-deep);
+}
+.door {
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, #05120b, #0a1f14);
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
+  box-shadow: inset 0 0 100px rgba(0,0,0,0.95);
+}
+.door-left {
+  transform-origin: left center;
+  border-right: 1px solid var(--gold);
+}
+.door-right {
+  transform-origin: right center;
+  border-left: 1px solid var(--gold);
+  background: linear-gradient(to left, #05120b, #0a1f14);
+}
+.door-inner {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Door Corner Flowers */
+.door-flower {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  color: var(--gold-light);
+  opacity: 0.85;
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.8));
+  animation: slowSpin 35s linear infinite;
+  z-index: 2;
+}
+@keyframes slowSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.flower-tl { top: 25px; left: 25px; }
+.flower-bl { bottom: 25px; left: 25px; }
+.flower-tr { top: 25px; right: 25px; }
+.flower-br { bottom: 25px; right: 25px; }
+
+.door-monogram {
+  font-family: var(--ff-dp);
+  font-size: clamp(8rem, 25vw, 18rem);
+  color: var(--gold-light);
+  opacity: 0.9;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--shimmer);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.6));
+}
+.monogram-left { right: 8%; }
+.monogram-right { left: 8%; }
+
+.door-center-seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), #8a7342);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 40px rgba(212,175,55,0.4), inset 0 0 15px rgba(0,0,0,0.3);
+  z-index: 3;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+.seal-amp {
+  font-family: var(--ff-dp);
+  font-size: 2.8rem;
+  color: #05120b;
+  font-style: italic;
+  font-weight: 700;
+}
+.door-tap-hint {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--ff-ss);
+  color: var(--gold-light);
+  font-size: 0.85rem;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  animation: pulseHint 2s infinite;
+  z-index: 3;
+  transition: opacity 0.5s ease;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+}
+@keyframes pulseHint {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.door-container.open .door-left {
+  transform: rotateY(-105deg);
+}
+.door-container.open .door-right {
+  transform: rotateY(105deg);
+}
+.door-container.open .door-center-seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+.door-container.open .door-tap-hint {
+  opacity: 0;
+}
+.door-container.open {
+  pointer-events: none;
+  background: transparent;
+}
+
 @media (max-width: 480px) {
   .cd-grid { gap: 8px; }
   .cd-val { font-size: 1.5rem; }
